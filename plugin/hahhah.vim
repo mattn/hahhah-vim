@@ -1,24 +1,56 @@
 scriptencoding utf-8
 
 if !has('unix') || $VTE_CJK_WIDTH != ''
-  let s:hahhahstr = ["(´д｀;)", "( ´д`;)", "(  ´д`)", "(　 ´д)", "(　　 ´)", "( 　　  )", "(　　　 )", "(; 　　 )", "( ;　　 )", "(` ;　　)", "(д` ;　)"]
+  let s:hahhahstr = [
+  \ '(´д｀;)',
+  \ '( ´д`;)',
+  \ '(  ´д`)',
+  \ '(　 ´д)',
+  \ '(　　 ´)',
+  \ '( 　　  )',
+  \ '(　　　 )',
+  \ '(; 　　 )',
+  \ '( ;　　 )',
+  \ '(` ;　　)',
+  \ '(д` ;　)']
+  let s:hahhaherr = [
+  \ '　　　ｪ(´д｀)ｪ　　　', 
+  \ '　　ェｪ(´д｀)ｪェ　　', 
+  \ '　エェｪ(´д｀)ｪェエ　', 
+  \ '工エェｪ(´д｀)ｪェエ工']
 else
-  let s:hahhahstr = ["(´ д ｀; )", "( ´ д `;)", "(  ´ д `)", "(   ´ д )", "( 　　´ )", "( 　　  )", "(　　　 )", "(; 　　 )", "( ;　　 )", "(` ;　　)", "(д `;　 )"]
+  let s:hahhahstr = [
+  \ '(´ д ｀; )',
+  \ '( ´ д `;)',
+  \ '(  ´ д `)',
+  \ '(   ´ д )',
+  \ '( 　　´ )',
+  \ '( 　　  )',
+  \ '(　　　 )',
+  \ '(; 　　 )',
+  \ '( ;　　 )',
+  \ '(` ;　　)',
+  \ '(д `;　 )']
+  let s:hahhaherr = [
+  \ '　　　ｪ(´ д ｀)ｪ　　　', 
+  \ '　　ェｪ(´ д ｀)ｪェ　　', 
+  \ '　エェｪ(´ д ｀)ｪェエ　', 
+  \ '工エェｪ(´ д ｀)ｪェエ工']
 endif
-let s:hahhaherr =  '工エェｪ(´д｀)ｪェエ工'
 
 function! g:HahHah()
   let hahhahpos = get(w:, "hahhahpos", -1) + 1
   if len(v:errmsg) && hahhahpos >= 0
-    let hahhahpos = -10
-	let g:err = v:errmsg
+    let hahhahpos = -24
     let v:errmsg = ''
   endif
-  let hahhahpos = hahhahpos % len(s:hahhahstr)
+  if hahhahpos >= 0
+    let hahhahpos = hahhahpos % len(s:hahhahstr)
+  endif
   let w:['hahhahpos'] = hahhahpos
   if hahhahpos >= 0
     return s:hahhahstr[hahhahpos].' ﾊｧﾊｧ'
   else
-    return s:hahhaherr
+    return s:hahhaherr[(hahhahpos+24) % len(s:hahhaherr)]
   endif
 endfunction
