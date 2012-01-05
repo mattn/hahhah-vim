@@ -38,10 +38,15 @@ else
   \ '工エェｪ(´ д ｀)ｪェエ工']
 endif
 
+function! g:HahHahLastErrorMsg()
+  return get(s:, 'lasterrormsg', '')
+endfunction
+
 function! g:HahHah()
   let hahhahpos = get(w:, "hahhahpos", -1) + 1
   if len(v:errmsg) && hahhahpos >= 0
     let hahhahpos = -24
+    let s:lesterrormsg = v:errmsg
     let v:errmsg = ''
   endif
   if hahhahpos >= 0
