@@ -43,6 +43,12 @@ function! g:HahHahLastErrorMsg()
 endfunction
 
 function! g:HahHah()
+  let hahhahenc = get(s:, "hahhahenc", &encoding)
+  if hahhahenc != &encoding
+    let s:hahhahstr = map(s:hahhahstr, 'iconv(v:val,s:hahhahenc,&encoding)')
+    let s:hahhaherr = map(s:hahhaherr, 'iconv(v:val,s:hahhahenc,&encoding)')
+  endif
+  let s:hahhahenc = &encoding
   let hahhahpos = get(w:, "hahhahpos", -1) + 1
   if len(v:errmsg) && hahhahpos >= 0
     let hahhahpos = -24
