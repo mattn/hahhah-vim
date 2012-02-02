@@ -1,6 +1,7 @@
 scriptencoding utf-8
 
-if !has('unix') || ($VTE_CJK_WIDTH != '' && &ambiwidth == 'double')
+if (!has('unix') && !has('win32unix'))
+  \ || ($VTE_CJK_WIDTH != '' && &ambiwidth == 'double')
   let s:hahhahstr = [
   \ '(´д｀;)',
   \ '( ´д`;)',
