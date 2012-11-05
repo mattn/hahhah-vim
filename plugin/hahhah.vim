@@ -53,7 +53,7 @@ function! g:HahHah()
   let hahhahpos = get(w:, "hahhahpos", -1) + 1
   if len(v:errmsg) && hahhahpos >= 0
     let hahhahpos = -24
-    let s:lesterrormsg = v:errmsg
+    let s:lasterrormsg = v:errmsg
     let v:errmsg = ''
   endif
   if hahhahpos >= 0
