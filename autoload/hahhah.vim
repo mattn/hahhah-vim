@@ -39,11 +39,11 @@ else
   \ '工エェｪ(´ д ｀)ｪェエ工']
 endif
 
-function! g:HahHahLastErrorMsg()
+function! hahhah#last_error_msg()
   return get(s:, 'lasterrormsg', '')
 endfunction
 
-function! g:HahHah()
+function! hahhah#get_text()
   let hahhahenc = get(s:, "hahhahenc", &encoding)
   if hahhahenc != &encoding
     let s:hahhahstr = map(s:hahhahstr, 'iconv(v:val,s:hahhahenc,&encoding)')
